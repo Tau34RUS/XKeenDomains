@@ -13,16 +13,9 @@ XKeen Domains — это Android-приложение, созданное для
 ## Screenshots
 
 <p align="center">
-  <img src="./readme/main.png" width="250" alt="Main Screen">
-  &nbsp; &nbsp; &nbsp;
-  <img src="./readme/settings.png" width="250" alt="Settings Screen">
-</p>
-<p align="center">
-  <em>Main screen with Material 3 tiles and the flexible Settings screen.</em>
-</p>
-<br>
-<p align="center">
-  <img src="./readme/manage.png" width="250" alt="Manage Domains">
+    <img src="./readme/main.png" width="250" alt="Main Screen">
+    <img src="./readme/settings.png" width="250" alt="Settings Screen">
+    <img src="./readme/manage.png" width="250" alt="Manage Domains">
 </p>
 
 
@@ -63,7 +56,7 @@ The application is built using modern Android development practices.
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/Tau34RUS/XKeenDomains.git
     ```
 2.  **Open in Android Studio:** Open the cloned project in the latest version of Android Studio.
 3.  **Build the App:** The project should build successfully as all dependencies are defined in the Gradle scripts.
