@@ -87,7 +87,15 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppScaffold(title: String, navController: NavController, isDarkTheme: Boolean, onThemeChange: () -> Unit, showSettingsButton: Boolean = false, content: @Composable (PaddingValues) -> Unit) {
+fun AppScaffold(
+    title: String,
+    navController: NavController,
+    isDarkTheme: Boolean,
+    onThemeChange: () -> Unit,
+    showSettingsButton: Boolean = false,
+    showThemeChanger: Boolean = false,
+    content: @Composable (PaddingValues) -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -100,8 +108,10 @@ fun AppScaffold(title: String, navController: NavController, isDarkTheme: Boolea
                     }
                 },
                 actions = {
-                    IconButton(onClick = onThemeChange) {
-                        Icon(if (isDarkTheme) Icons.Default.LightMode else Icons.Default.DarkMode, contentDescription = "Toggle Theme")
+                    if (showThemeChanger) {
+                        IconButton(onClick = onThemeChange) {
+                            Icon(if (isDarkTheme) Icons.Default.LightMode else Icons.Default.DarkMode, contentDescription = "Toggle Theme")
+                        }
                     }
                     if (showSettingsButton) {
                         IconButton(onClick = { navController.navigate("settings") }) {
@@ -146,7 +156,7 @@ fun MainScreen(navController: NavController, sshManager: SshManager, isDarkTheme
 
     LaunchedEffect(logEntries) { listState.animateScrollToItem(if (logEntries.isNotEmpty()) logEntries.size - 1 else 0) }
 
-    AppScaffold(title = "XKeen Domains", navController = navController, isDarkTheme = isDarkTheme, onThemeChange = onThemeChange, showSettingsButton = true) {
+    AppScaffold(title = "XKeen Domains", navController = navController, isDarkTheme = isDarkTheme, onThemeChange = onThemeChange, showSettingsButton = true, showThemeChanger = true) {
         Column(modifier = Modifier.padding(it).padding(16.dp).fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
             
             ActionTile(icon = Icons.Default.Add, title = "Add Domains", subtitle = "Add new domains to the list", onClick = { showAddDialog = true })
